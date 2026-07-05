@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173650">
+  <title>DELF B1 – Skills Practice Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span>S</span><div><strong>DELF B1</strong><small>Skills Practice Center</small></div></div>
+    <button class="sidebar-close" id="sidebarClose" aria-label="Đóng">×</button>
+    <div class="app-switcher">
+      <a href="../index.html"><span>V</span><div><strong>Từ vựng</strong><small>Daily Quiz</small></div></a>
+      <a href="../grammar-practice-center/index.html"><span>G</span><div><strong>Ngữ pháp</strong><small>Grammar</small></div></a>
+      <a href="../../../h-y-t-o-cho-t/outputs/index.html"><span>D</span><div><strong>Mỗi ngày</strong><small>Daily Command</small></div></a>
+      <a class="active" href="index.html"><span>S</span><div><strong>Kỹ năng</strong><small>Skills Center</small></div></a>
+    </div>
+    <p class="phase">GIAI ĐOẠN 1 · 19/06–31/07</p>
+    <nav id="dateNav" aria-label="Danh sách ngày học"></nav>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <main>
+    <header class="topbar">
+      <button class="menu" id="menuButton" aria-label="Mở menu">☰</button>
+      <div><p class="eyebrow">PARLER · ÉCRIRE · ÉCOUTER</p><h1>Skills Practice Center</h1></div>
+      <div class="top-actions">
+        <button class="btn ghost" id="focusMode">◐ Focus Mode</button>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/1YFaJsXJTqSx6uHM-JiE21w3QQ0O2eGNzHn74Jk4L0ME/edit?gid=2114291577#gid=2114291577">Google Sheet ↗</a>
+        <button class="btn navy" id="exportJson">Export JSON</button>
+        <button class="btn yellow" id="importJson">Import JSON</button><input class="hidden" id="importFile" type="file" accept="application/json">
+      </div>
+    </header>
+
+    <section class="dashboard">
+      <article><span>Ngày hoàn thành</span><strong id="daysDone">0</strong><small>/ 43 ngày</small></article>
+      <article><span>Bài nói</span><strong id="oralDone">0</strong><small>đã luyện</small></article>
+      <article><span>Bài viết</span><strong id="writingDone">0</strong><small>đã hoàn thành</small></article>
+      <article><span>Bài nghe</span><strong id="listeningDone">0</strong><small>đã hoàn thành</small></article>
+      <article><span>Tự đánh giá</span><strong id="averageRating">—</strong><small>trên 5</small></article>
+      <article><span>Lỗi thường gặp</span><strong id="commonErrors">—</strong><small>cần chú ý</small></article>
+      <article class="progress-card"><div><span>Tiến độ Giai đoạn 1</span><b id="progressText">0/43</b></div><div class="track"><i id="progressBar"></i></div><small id="todayGoal">Mục tiêu hôm nay: 3 kỹ năng</small></article>
+    </section>
+
+    <section class="hero">
+      <div><div class="meta"><span id="weekBadge">Tuần 1</span><time id="lessonDate">19/06/2026</time></div><h2 id="topicTitle">L’expatriation</h2><p>Ba kỹ năng · một chủ đề · một ngày tiến bộ</p></div><div class="hero-word">B1</div>
+    </section>
+
+    <nav class="skill-tabs" aria-label="Chọn kỹ năng">
+      <button class="active" data-tab="oral"><span>🎙</span><strong>Parler</strong><small>Production orale</small></button>
+      <button data-tab="writing"><span>✍</span><strong>Écrire</strong><small>Production écrite</small></button>
+      <button data-tab="listening"><span>🎧</span><strong>Écouter</strong><small>Compréhension orale</small></button>
+    </nav>
+
+    <section class="skill-panel active" id="oralPanel">
+      <div class="panel-title"><div><span>SUJET DU JOUR</span><h3 id="oralSubject"></h3></div><span class="skill-chip">3 minutes</span></div>
+      <div class="two-col">
+        <article class="card idea-card"><h4>Banque d’idées</h4><ul id="ideaList"></ul></article>
+        <article class="card word-card"><h4>Mots utiles</h4><div id="usefulWords"></div></article>
+        <article class="card plan-card"><h4>Plan guidé</h4><ol><li>Introduction</li><li>Deux arguments</li><li>Exemple personnel</li><li>Conclusion</li></ol></article>
+        <article class="card recorder-card"><h4>Timer & enregistrement</h4><div class="timer" id="timerDisplay">03:00</div><div class="button-row"><button class="btn yellow" id="timerStart">▶ Timer</button><button class="btn ghost" id="timerReset">↻</button><button class="btn record" id="recordStart">● Ghi âm</button><button class="btn ghost" id="recordStop" disabled>■ Dừng</button></div><audio id="recordingPlayback" controls class="hidden"></audio></article>
+      </div>
+      <article class="card"><h4>Checklist tự đánh giá</h4><div class="check-grid" id="oralChecklist"></div></article>
+      <article class="card"><h4>Transcription thủ công</h4><textarea data-save="oral.transcription" rows="7" placeholder="Chép lại bài nói của bạn để tự sửa..."></textarea></article>
+      <div class="complete-row"><button class="btn navy" data-complete="oral">✓ Hoàn thành bài nói</button></div>
+    </section>
+
+    <section class="skill-panel" id="writingPanel">
+      <div class="panel-title"><div><span id="writingType">ESSAI</span><h3 id="writingSubject"></h3></div><span class="skill-chip">160–180 mots</span></div>
+      <div class="two-col"><article class="card"><h4>Plan guidé</h4><ol id="writingPlan"></ol></article><article class="card"><h4>Connecteurs utiles</h4><div class="tags" id="writingConnectors"></div><h4>Vocabulaire obligatoire</h4><div class="tags yellow-tags" id="requiredWords"></div></article></div>
+      <article class="card writing-zone"><div class="writing-toolbar"><h4>Zone de rédaction</h4><strong id="wordCount">0 mot</strong></div><textarea id="writingDraft" data-save="writing.draft" rows="18" placeholder="Commencez à écrire ici..."></textarea><div class="word-progress"><i id="wordProgress"></i></div></article>
+      <article class="card"><h4>Checklist DELF</h4><div class="check-grid" id="writingChecklist"></div></article>
+      <article class="card"><h4>Tự đánh giá 0–5</h4><div class="rating-grid" id="ratingGrid"></div></article>
+      <div class="complete-row"><button class="btn ghost" id="saveWriting">Lưu bài</button><button class="btn yellow" id="exportTxt">Xuất .txt</button><button class="btn navy" data-complete="writing">✓ Hoàn thành bài viết</button></div>
+    </section>
+
+    <section class="skill-panel" id="listeningPanel">
+      <div class="panel-title"><div><span>DOCUMENT AUDIO / VIDÉO</span><h3 id="listeningTask"></h3></div><span class="skill-chip">80–100 mots</span></div>
+      <div class="source-links"><a target="_blank" rel="noopener" href="https://savoirs.rfi.fr/">RFI Savoirs ↗</a><a target="_blank" rel="noopener" href="https://apprendre.tv5monde.com/">TV5 Monde ↗</a><a target="_blank" rel="noopener" href="https://innerfrench.com/">InnerFrench ↗</a><a target="_blank" rel="noopener" href="https://www.easyfrench.fm/">Easy French ↗</a></div>
+      <article class="card audio-link"><input id="audioUrl" data-save="listening.url" type="url" placeholder="Dán link audio/video..."><button class="btn navy" id="openAudio">Mở link ↗</button></article>
+      <article class="card"><h4>Quy trình nghe</h4><div class="listening-steps" id="listeningSteps"></div></article>
+      <article class="card exercises"><h4>Bài tập nghe</h4><label>1. Vrai/Faux: Le document présente plusieurs points de vue.<select data-save="listening.trueFalse"><option value="">Chọn</option><option>Vrai</option><option>Faux</option></select></label><label>2. QCM: Quel est le thème principal ?<select data-save="listening.qcm"><option value="">Chọn</option><option>Les avantages et les difficultés</option><option>Une recette de cuisine</option><option>La météo</option></select></label><label>3. Question ouverte<textarea data-save="listening.openAnswer" rows="3" placeholder="Répondez en français..."></textarea></label><label>4. Mots-clés à relever<input data-save="listening.keywords" placeholder="5–8 mots-clés"></label></article>
+      <div class="two-col"><article class="card"><h4>5 ý chính</h4><textarea data-save="listening.mainIdeas" rows="7" placeholder="1. ..."></textarea></article><article class="card"><h4>Từ mới nghe được</h4><textarea data-save="listening.newWords" rows="7" placeholder="mot — sens"></textarea></article></div>
+      <article class="card writing-zone"><div class="writing-toolbar"><h4>Résumé en français</h4><strong id="summaryCount">0 mot</strong></div><textarea id="listeningSummary" data-save="listening.summary" rows="10" placeholder="Écrivez un résumé de 80 à 100 mots..."></textarea></article>
+      <div class="complete-row"><button class="btn navy" data-complete="listening">✓ Hoàn thành bài nghe</button></div>
+    </section>
+
+    <section class="history panel"><div class="panel-title"><div><span>HISTORIQUE</span><h3>Lịch sử luyện tập</h3></div><button class="btn danger-ghost" id="resetDay">Reset ngày</button></div><div id="historyList"></div></section>
+    <section class="guide panel"><h3>Hướng dẫn nhanh</h3><div><p><b>Mở bằng Chrome:</b> nhấp đúp index.html.</p><p><b>Bookmark:</b> nhấn Ctrl + D.</p><p><b>Mỗi ngày:</b> chọn ngày → hoàn thành Parler, Écrire, Écouter.</p><p><b>GitHub Pages:</b> tải 3 tệp lên repository → Settings → Pages → main/root.</p></div></section>
+    <footer>Un peu chaque jour, beaucoup de progrès.</footer>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>

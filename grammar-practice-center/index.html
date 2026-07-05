@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Luyện ngữ pháp DELF B1 theo từng ngày">
+  <title>DELF B1 – Grammar Practice Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span>G</span><div><strong>DELF B1</strong><small>Grammar Practice Center</small></div></div>
+    <button class="sidebar-close" id="sidebarClose" aria-label="Đóng">×</button>
+    <div class="app-switcher" aria-label="Chọn trung tâm học tập">
+      <a class="app-link grammar active" href="index.html" aria-current="page"><span>G</span><div><strong>Ngữ pháp</strong><small>Grammar Center</small></div><b>Đang học</b></a>
+      <a class="app-link vocabulary" href="../index.html"><span>V</span><div><strong>Từ vựng</strong><small>Daily Quiz Center</small></div><b>Mở →</b></a>
+      <a class="app-link daily" href="../../../h-y-t-o-cho-t/outputs/index.html"><span>D</span><div><strong>Học mỗi ngày</strong><small>Daily Command</small></div><b>Mở →</b></a>
+    </div>
+    <p class="phase">GIAI ĐOẠN 1 · 19/06–31/07</p>
+    <nav id="dateNav" aria-label="Danh sách ngày học"></nav>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <main>
+    <header class="topbar">
+      <button class="menu" id="menuButton" aria-label="Mở danh sách ngày">☰</button>
+      <div><p class="kicker">UN PEU DE GRAMMAIRE CHAQUE JOUR</p><h1>Grammar Practice Center</h1></div>
+      <div class="top-actions">
+        <div class="grammar-docs-menu">
+          <button class="grammar-docs-button" id="grammarDocsButton" type="button" aria-expanded="false" aria-controls="grammarDocsDropdown">
+            <span class="grammar-docs-logo" aria-hidden="true">G</span>
+            <span class="grammar-docs-copy"><strong>Google Docs</strong><small>43 chủ điểm</small></span>
+            <b aria-hidden="true">⌄</b>
+          </button>
+          <div class="grammar-docs-dropdown hidden" id="grammarDocsDropdown">
+            <div class="grammar-docs-head">
+              <div><strong>GIAI ĐOẠN 1</strong><small>19/06–31/07 · 43 trang</small></div>
+              <a href="https://docs.google.com/document/d/1jDOXkLqLHF2qRvccMJYQBqrh7lDazVG6J2VNkz8Lff8/edit?tab=t.0" target="_blank" rel="noopener">Mở toàn bộ ↗</a>
+            </div>
+            <nav id="grammarDocsLinks" aria-label="Liên kết Google Docs theo chủ điểm"></nav>
+          </div>
+        </div>
+        <label class="exam-switch"><input id="examMode" type="checkbox"><span></span> Mode Examen</label>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/1YFaJsXJTqSx6uHM-JiE21w3QQ0O2eGNzHn74Jk4L0ME/edit?gid=2114291577#gid=2114291577">Mở Google Sheet ↗</a>
+      </div>
+    </header>
+
+    <section class="dashboard">
+      <article><span>Tổng bài ngữ pháp</span><strong id="totalLessons">43</strong><small>bài học</small></article>
+      <article><span>Đã hoàn thành</span><strong id="completedLessons">0</strong><small>ngày</small></article>
+      <article><span>Điểm trung bình</span><strong id="averageScore">—</strong><small>trên 100</small></article>
+      <article><span>Lỗi cần ôn</span><strong id="errorCount">0</strong><small>câu</small></article>
+      <article class="progress-card"><div><span>Tiến độ Giai đoạn 1</span><b id="progressLabel">0/43</b></div><div class="track"><i id="progressBar"></i></div><small id="weeklyProgress">Tuần 1: 0/7</small></article>
+    </section>
+
+    <section class="lesson-hero">
+      <div><div class="meta"><span id="weekBadge">Tuần 1</span><time id="lessonDate">19/06/2026</time></div><h2 id="lessonTitle">Discours indirect au présent</h2><p id="lessonUse">Thuật lại lời nói của người khác.</p></div>
+      <div class="hero-symbol">que</div>
+    </section>
+
+    <section class="formula-image-panel panel">
+      <div class="panel-head">
+        <div><span>CÔNG THỨC BẰNG ẢNH</span><h3>Hai trang công thức A4 của tôi</h3></div>
+      </div>
+      <div class="a4-workspace">
+        <div class="a4-slot">
+          <div class="a4-slot-head"><strong>Trang A</strong><div><button class="mini-image-btn choose-image" data-slot="0" type="button">＋ Chọn</button><button class="mini-image-btn paste-image" data-slot="0" type="button">⎘ Dán</button><button class="mini-image-btn remove-image hidden" data-slot="0" type="button">× Xóa</button></div></div>
+          <input class="hidden formula-image-input" data-slot="0" type="file" accept="image/png,image/jpeg,image/webp">
+          <div class="a4-frame" data-slot="0" tabindex="0" title="Nhấp vào đây rồi nhấn Ctrl + V để dán ảnh">
+            <div class="a4-placeholder"><strong>Khung A4 · Trang A</strong><span>210 × 297 mm · Dọc</span><small>Chọn ảnh hoặc nhấn Ctrl + V</small></div>
+            <img class="hidden formula-image-preview" alt="Ảnh công thức ngữ pháp trang A">
+          </div>
+        </div>
+        <div class="a4-slot">
+          <div class="a4-slot-head"><strong>Trang B</strong><div><button class="mini-image-btn choose-image" data-slot="1" type="button">＋ Chọn</button><button class="mini-image-btn paste-image" data-slot="1" type="button">⎘ Dán</button><button class="mini-image-btn remove-image hidden" data-slot="1" type="button">× Xóa</button></div></div>
+          <input class="hidden formula-image-input" data-slot="1" type="file" accept="image/png,image/jpeg,image/webp">
+          <div class="a4-frame" data-slot="1" tabindex="0" title="Nhấp vào đây rồi nhấn Ctrl + V để dán ảnh">
+            <div class="a4-placeholder"><strong>Khung A4 · Trang B</strong><span>210 × 297 mm · Dọc</span><small>Chọn ảnh hoặc nhấn Ctrl + V</small></div>
+            <img class="hidden formula-image-preview" alt="Ảnh công thức ngữ pháp trang B">
+          </div>
+        </div>
+        <aside><b>Hai trang học song song</b><p>Ảnh được căn giữa trên nền A4 và tự thu nhỏ để không bị cắt. Mỗi ngày lưu riêng hai trang A và B.</p></aside>
+      </div>
+    </section>
+
+    <section class="practice panel" id="practicePanel">
+      <div class="panel-head">
+        <div><span>05</span><h3>Bài tập hôm nay</h3><b id="exerciseCount">0 câu</b></div>
+        <div class="practice-actions"><button class="btn yellow" id="reviewErrors">Réviser les erreurs</button><button class="btn danger-ghost" id="resetDay">Réinitialiser la journée</button></div>
+      </div>
+      <div class="exam-notice hidden" id="examNotice">Mode Examen đang bật — đáp án và giải thích chỉ hiện sau khi nộp bài.</div>
+      <form id="exerciseForm"></form>
+      <div class="submit-row"><button class="btn navy" id="submitButton" type="button">Nộp bài</button></div>
+      <div class="result hidden" id="resultBox"></div>
+    </section>
+
+    <section class="notes panel">
+      <div class="panel-head"><div><span>06</span><h3>Ghi chú cá nhân</h3></div><small id="noteStatus">Tự động lưu</small></div>
+      <textarea id="notes" rows="6" placeholder="Ghi lại cấu trúc cần nhớ, lỗi hay mắc hoặc ví dụ của riêng bạn..."></textarea>
+    </section>
+
+    <section class="guide panel">
+      <div class="panel-head"><div><span>07</span><h3>Đưa web lên GitHub Pages</h3></div></div>
+      <ol><li>Tạo repository mới trên GitHub.</li><li>Tải ba tệp <code>index.html</code>, <code>style.css</code>, <code>script.js</code> lên nhánh <code>main</code>.</li><li>Mở Settings → Pages → Deploy from a branch → chọn <code>main / root</code>.</li><li>Chờ GitHub cung cấp đường dẫn miễn phí.</li></ol>
+    </section>
+    <footer>La grammaire devient simple quand on pratique un peu chaque jour.</footer>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
